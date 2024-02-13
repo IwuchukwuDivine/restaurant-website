@@ -100,3 +100,33 @@ body {
   color: var(--darkgray);
   line-height: 28px;
 }
+
+@media (max-width: 1166px) {
+  .about-menu > p {
+    max-width: 80%;
+  }
+}
+@media (max-width: 730px) {
+  .about-menu > p {
+    max-width: 100%;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .about-menu {
+    margin-top: 0px;
+  }
+  .grid-appetizer {
+    margin-top: 15px;
+    gap: 30px;
+  }
+}
+@media (max-width: 430px) {
+  :is(.about-menu, .menu-header ) h3 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    margin-bottom: 10px;
+  }
+  .message {
+    font-size: clamp(1.5rem 2vw 2rem);
+  }
+}

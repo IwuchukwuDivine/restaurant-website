@@ -43,6 +43,8 @@ nav {
   font-family: 'Playfair Display', serif;
   white-space: nowrap;
   z-index: 999;
+  cursor: pointer;
+  user-select: none;
 }
 .nav-links {
   display: flex;
@@ -249,7 +251,7 @@ a.active {
 .open-hours > div > img {
   width: 25px;
 }
-.open-hours > button {
+.open-hours > a > button {
   margin-top: 30px;
 }
 .addy {
@@ -344,6 +346,7 @@ min-height: 300px;
   font-family: 'Playfair Display', serif;
 }
 .book-reservation {
+  white-space: nowrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -369,8 +372,13 @@ min-height: 300px;
 /**************** FOOTER SECTION ****************/
 .footer-flex {
   display: flex;
-  align-items: start;
   justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-flex > * {
+  min-width: 300px;
 }
 .footer-flex > div > h5 {
   font-weight: 900;
@@ -439,7 +447,10 @@ min-height: 300px;
 @media (max-width: 824px) {
   .mobile-nav {
     display: initial;
-    z-index: 888;
+    z-index: 88;
+  }
+  .container {
+    padding: 30px 50px;
   }
 
   .nav-links {
@@ -453,6 +464,7 @@ min-height: 300px;
     padding: 100px;
     animation: slideNav 0.4s ease-in;
     display: none;
+    z-index: -1;
   }
   .nav-links.clicked {
     display: flex;
@@ -468,4 +480,22 @@ min-height: 300px;
   to {
     transform: translateY(0%);
   }
+}
+@media (max-width: 430px) {
+  .container {
+    padding: 20px;
+  }
+  .message {
+    font-size: 5vw;
+  }
+  .book-reservation {
+    gap: 20px;
+  }
+  .book-reservation > div {
+    font-size: 5vw;
+    padding: 30px;
+}
+.book-reservation > img {
+  width: 60px;
+}
 }

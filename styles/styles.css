@@ -37,10 +37,12 @@ nav {
   z-index: 999;
 }
 .logo {
-  font-size: 2rem;
+  font-size: clamp(1.7rem, 2vw, 2rem);
   color: var(--darkblack);
-  font-weight: bolder;
+  font-weight: 900;
   font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+  z-index: 999;
 }
 .nav-links {
   display: flex;
@@ -48,6 +50,7 @@ nav {
 }
 .nav-links > li > a {
   font-size: 1.1rem;
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
   font-weight: 600;
   margin: 0 30px;
   transition: color 0.4s ease;
@@ -71,6 +74,28 @@ a.active {
   bottom: 0;
   left: 0;
 }
+.mobile-nav {
+  display: none;
+}
+.ham-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  cursor: pointer;
+  
+}
+.ham-menu > span {
+  background-color: var(--gunsmoke);
+  width: 40px;
+  height: 2px;
+  transition: transform 0.4s ease-in;
+}
+.ham-menu.clicked > span:nth-child(1) {
+  transform: rotate(315deg) translateY(12px);
+}
+.ham-menu.clicked > span:nth-child(2) {
+  transform: rotate(-315deg) translateY(-12px);
+}
 
 /************* Hero section *****************/
 .hero-flex {
@@ -78,14 +103,14 @@ a.active {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 10%;
 }
 .hero-flex > * {
   flex: 1;
 }
-.hero-flex > h2 {
-  font-size: 3.5rem;
-  font-weight: 700;
+.hero-flex > h1 {
+  font-size: clamp(2.5rem, 3.1vw, 3.5rem); 
+  font-weight: 900;
 }
 .hero-flex > div > p, .about > p {
   font-size: 1.2rem;
@@ -93,7 +118,7 @@ a.active {
 }
 .hero > img {
   width: 100%;
-  height: 700px;
+  max-height: 700px;
   object-position: center center;
   object-fit: cover;
 }
@@ -105,6 +130,7 @@ a.active {
   padding: 16px 21px;
   cursor: pointer;
   transition: opacity 0.5s ease-in;
+  white-space: nowrap;
 }
 .dark:hover {
   opacity: 0.8;
@@ -117,6 +143,9 @@ a.active {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in;
+  min-width: 150px;
+  min-height: 50px;
+  white-space: nowrap;
 }
 .light:hover {
   background-color: rgba(207, 207, 207, 0.2);
@@ -159,7 +188,7 @@ a.active {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 50px;
-  /* gap: 60px; */
+  gap: 60px;
 }
 .rotate-text {
   position: absolute;
@@ -227,8 +256,8 @@ a.active {
   margin-top: 40px;
 }
 .menu-grid > div {
-height: 400px;
- 
+max-height: 400px;
+min-height: 300px;
 }
 .menu-grid > div > img {
   object-position: center center;
@@ -287,7 +316,7 @@ height: 400px;
   height: 100%;
 }
 .slide-image {
-  height: 440px;
+  max-height: 440px;
 }
 .slides > * {
   flex: 1;
@@ -371,7 +400,7 @@ height: 400px;
   transform: translateX(10px);
 }
 .footer-logo {
-  font-size: 10rem;
+  font-size: 9vw;
   font-weight: bolder;
   text-align: center;
   padding: 50px 0;
@@ -385,4 +414,58 @@ height: 400px;
   padding-top: 50px;
   font-size: 0.9rem;
   color: var(--darkblack);
+}
+
+/* styles for responsiveness */
+@media (max-width: 1166px){
+  .container {
+    padding: 50px 80px;
+  }
+  .nav-links > li > a {
+    margin: 0 15px;
+  }
+  .hero-flex {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .open {
+    flex-direction: column;
+    align-items: start;
+  }
+  .about-img {
+    width: 100%;
+  }
+}
+@media (max-width: 824px) {
+  .mobile-nav {
+    display: initial;
+    z-index: 888;
+  }
+
+  .nav-links {
+    position: absolute;
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 100px;
+    animation: slideNav 0.4s ease-in;
+    display: none;
+  }
+  .nav-links.clicked {
+    display: flex;
+  }
+  .nav-links > li > a {
+    font-size: clamp(1.2rem, 1.1vw, 1.1rem);
+  }
+}
+@keyframes slideNav {
+  from {
+    transform: translateY(-100%);
+  } 
+  to {
+    transform: translateY(0%);
+  }
 }

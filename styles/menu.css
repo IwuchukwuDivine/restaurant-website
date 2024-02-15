@@ -129,4 +129,12 @@ body {
   .message {
     font-size: clamp(1.5rem 2vw 2rem);
   }
+  .grid-appetizer {
+    margin-top: 10px;
+    height: min-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
 }

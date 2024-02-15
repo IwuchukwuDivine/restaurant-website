@@ -80,6 +80,7 @@ form > button {
   margin-top: 30px;
   cursor: pointer;
   transition: background-color 0.5s;
+  white-space: nowrap;
 }
 form > button:hover {
   background-color: rgba(18, 18, 18, 0.9);
@@ -87,4 +88,23 @@ form > button:hover {
 .tick {
   text-align: start;
   margin-top: 30px;
+}
+
+@media (max-width: 676px ) {
+  #reservation {
+    max-width: 80%;
+    margin: 30px auto;
+  }
+}
+@media (max-width: 428px) {
+  #reservation {
+    max-width: 90%;
+    margin: 10px auto;
+  }
+  .form-flex {
+    flex-direction: column;
+  }
+  .secure-seat > p {
+    margin-bottom: 10px;
+  }
 }

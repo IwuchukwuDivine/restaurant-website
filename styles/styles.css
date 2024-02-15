@@ -133,6 +133,7 @@ a.active {
   cursor: pointer;
   transition: opacity 0.5s ease-in;
   white-space: nowrap;
+  width: 200px;
 }
 .dark:hover {
   opacity: 0.8;
@@ -145,7 +146,7 @@ a.active {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in;
-  min-width: 150px;
+  width: 200px;
   min-height: 50px;
   white-space: nowrap;
 }
@@ -156,6 +157,7 @@ a.active {
   display: flex;
   align-items: center;
   justify-content: start;
+  flex-wrap: wrap;
   margin-top: 30px;
   gap: 20px;
 }
@@ -167,7 +169,8 @@ a.active {
   align-items: start;
   justify-content: space-between;
   width: 850px;
-  gap: 90px;
+  column-gap: 10%;
+  row-gap: 10px;
   padding-bottom: 50px;
 }
 .about > h4 {
@@ -258,8 +261,7 @@ a.active {
   margin-top: 40px;
 }
 .menu-grid > div {
-max-height: 400px;
-min-height: 300px;
+  height: 400px;
 }
 .menu-grid > div > img {
   object-position: center center;
@@ -309,6 +311,7 @@ min-height: 300px;
   align-items: center;
   justify-content: space-between;
   gap: 60px;
+  flex-wrap: wrap;
 }
 
 .slide-image > img {
@@ -319,6 +322,7 @@ min-height: 300px;
 }
 .slide-image {
   max-height: 440px;
+  
 }
 .slides > * {
   flex: 1;
@@ -444,10 +448,34 @@ min-height: 300px;
     width: 100%;
   }
 }
+@media (max-width: 999px) {
+  .about {
+    width: 100%;
+    flex-direction: column;
+  }
+  .slides {
+    flex-direction: column;
+    text-align: center;
+  }
+  .slide-image {
+    margin-bottom: 50px;
+  }
+  .slider {
+    height: max-content;
+    gap: 0px;
+  }
+  
+}
 @media (max-width: 824px) {
   .mobile-nav {
     display: initial;
     z-index: 88;
+  }
+  .slide-image {
+    margin-bottom: 0px;
+  }
+  .slide-review {
+    gap: 30px;
   }
   .container {
     padding: 30px 50px;
@@ -481,21 +509,60 @@ min-height: 300px;
     transform: translateY(0%);
   }
 }
-@media (max-width: 430px) {
-  .container {
-    padding: 20px;
+@media (max-width: 669px) {
+  .explore-menu {
+    left: -100%;
   }
-  .message {
-    font-size: 5vw;
-  }
+  .menu-grid > div {
+    height: 250px;
+    }
   .book-reservation {
     gap: 20px;
   }
   .book-reservation > div {
     font-size: 5vw;
     padding: 30px;
-}
-.book-reservation > img {
+  }
+  .book-reservation > img {
   width: 60px;
+  }
+  .rotate-text {
+    right: 2%;
+    top: 70%;
+    transform: scale(0.6);
+  }
 }
+@media (max-width: 430px) {
+  .container {
+    padding: 20px;
+  }
+  .hero-flex {
+    margin: 0;
+  }
+  .hero-flex > h1 {
+    font-size: 7vw;
+  }
+  .hero-flex > div > p, .about > p {
+    line-height: 1.5rem;
+  }
+  .message {
+    font-size: 5vw;
+  }
+  .menu-grid > div {
+  height: 100px;
+  }
+  .buttons {
+    margin: 20px 0;
+  }
+  .open {
+    margin-bottom: 0;
+  }
+  
+}
+@media (max-width: 393px) {
+  .rotate-text {
+    right: -20px;
+    top: 60%;
+    transform: scale(0.5);
+  }
 }
